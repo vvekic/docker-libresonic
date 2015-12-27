@@ -9,6 +9,7 @@ RUN { set -ex; \
 }
 
 ENV SUBSONIC_VERSION 5.3
+ENV JAVA_OPTS="-Dsubsonic.defaultMusicFolder=/music/"
 
 RUN curl -fSL \
 	"https://github.com/EugeneKay/subsonic/releases/download/v$SUBSONIC_VERSION-kang/subsonic-v$SUBSONIC_VERSION-kang.war" \
