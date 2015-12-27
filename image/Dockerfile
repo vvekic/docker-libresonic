@@ -27,7 +27,8 @@ RUN { \
 		/usr/share/tomcat8/work \
 		/usr/share/tomcat8/temp \
 		/usr/share/tomcat8/logs; \
-	apt-get remove --purge -y maven $(apt-mark showauto); \
+	apt-get remove --purge -y maven; \
+	apt-get autoremove -y; \
 	apt-get clean; \
 	rm -rf /var/lib/apt/lists/*; \
 }
