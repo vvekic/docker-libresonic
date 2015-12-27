@@ -14,5 +14,5 @@ RUN curl -fSL \
 	"https://github.com/EugeneKay/subsonic/releases/download/v$SUBSONIC_VERSION-kang/subsonic-v$SUBSONIC_VERSION-kang.war" \
 	-o "webapps/subsonic.war"
 
-COPY start_subsonic /usr/bin
+COPY start_subsonic /usr/bin/
 CMD ["start_subsonic"]
