@@ -1,5 +1,5 @@
 subsonic:
-  build: chpio/subsonic
+  image: chpio/subsonic
   ports:
     - 8080:8080
   volumes:
