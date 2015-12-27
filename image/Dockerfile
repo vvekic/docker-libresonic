@@ -1,7 +1,5 @@
 FROM tomcat:8-jre8
 
-ENV SUBSONIC_VERSION 5.3
-
 RUN { set -ex; \
 	export DEBIAN_FRONTEND=noninteractive; \
 	apt-get update; \
@@ -9,6 +7,8 @@ RUN { set -ex; \
 	apt-get clean; \
 	rm -rf /var/lib/apt/lists/*; \
 }
+
+ENV SUBSONIC_VERSION 5.3
 
 RUN curl -fSL \
 	"https://github.com/EugeneKay/subsonic/releases/download/v$SUBSONIC_VERSION-kang/subsonic-v$SUBSONIC_VERSION-kang.war" \
