@@ -1,0 +1,7 @@
+subsonic:
+  build: chpio/subsonic
+  ports:
+    - 8080:8080
+  volumes:
+    - ./data-subsonic:/var/subsonic
+    - /data/music:/music:ro

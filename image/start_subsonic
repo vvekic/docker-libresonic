@@ -1,0 +1,6 @@
+#!/bin/sh -ex
+ln -sf /usr/bin/avconv /var/subsonic/transcode/ffmpeg
+
+chown tomcat8:tomcat8 -R /var/subsonic
+
+exec su -s /bin/bash - tomcat8 -c "exec /usr/share/tomcat8/bin/catalina.sh run"
