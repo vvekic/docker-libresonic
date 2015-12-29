@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8
+FROM jetty:9-jre8
 
 RUN { set -ex; \
 	export DEBIAN_FRONTEND=noninteractive; \
@@ -11,9 +11,14 @@ RUN { set -ex; \
 ENV SUBSONIC_VERSION 5.3
 ENV JAVA_OPTS="-Dsubsonic.defaultMusicFolder=/music/"
 
-RUN curl -fSL \
-	"https://github.com/EugeneKay/subsonic/releases/download/v$SUBSONIC_VERSION-kang/subsonic-v$SUBSONIC_VERSION-kang.war" \
-	-o "webapps/subsonic.war"
+RUN { set -ex; \
+	cd $JETTY_BASE/webapps; \
+	curl -fSL \
+		"https://github.com/EugeneKay/subsonic/releases/download/v$SUBSONIC_VERSION-kang/subsonic-v$SUBSONIC_VERSION-kang.war" \
+		-o "ROOT.war"; \
+	jar -xvf ROOT.war; \
+	rm ROOT.war; \
+}
 
 COPY start_subsonic /usr/bin/
 CMD ["start_subsonic"]
