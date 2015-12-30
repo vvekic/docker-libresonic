@@ -2,4 +2,6 @@
 mkdir -p /var/subsonic/transcode
 ln -sf /usr/bin/avconv /var/subsonic/transcode/ffmpeg
 
-exec catalina.sh run
+chown jetty:jetty -R /var/subsonic
+
+exec jetty.sh run
