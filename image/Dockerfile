@@ -16,7 +16,7 @@ RUN { set -ex; \
 	curl -fSL \
 		"https://github.com/EugeneKay/subsonic/releases/download/v$SUBSONIC_VERSION-kang/subsonic-v$SUBSONIC_VERSION-kang.war" \
 		-o "ROOT.war"; \
-	jar -xvf ROOT.war; \
+	unzip ROOT.war; \
 	rm ROOT.war; \
 }
 
