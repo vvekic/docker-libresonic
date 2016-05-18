@@ -1,7 +1,7 @@
-subsonic:
-  image: chpio/subsonic
+libresonic:
+  image: chpio/libresonic
   ports:
     - 8080:8080
   volumes:
-    - ./data-subsonic:/var/subsonic
+    - ./data-libresonic:/var/subsonic
     - /data/music:/music:ro
