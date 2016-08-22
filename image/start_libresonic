@@ -3,5 +3,4 @@ mkdir -p /var/subsonic/transcode
 ln -sf /usr/bin/avconv /var/subsonic/transcode/ffmpeg
 
 chown jetty:jetty -R /var/subsonic
-
 exec jetty.sh run

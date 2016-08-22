@@ -1,10 +1,12 @@
-FROM pikado/alpine-jetty
+FROM jetty:alpine
 
 ENV SUBSONIC_VERSION 6.0.1
 
+RUN apk add --update curl bash
+
 RUN { set -ex; \
-	mkdir -p $JETTY_HOME/webapps/ROOT; \
-	cd $JETTY_HOME/webapps/ROOT; \
+	mkdir -p $JETTY_BASE/webapps/ROOT; \
+	cd $JETTY_BASE/webapps/ROOT; \
 	curl -fSL \
 		"https://github.com/Libresonic/libresonic/releases/download/v$SUBSONIC_VERSION/libresonic-v$SUBSONIC_VERSION.war" \
 		-o "libresonic.zip"; \
